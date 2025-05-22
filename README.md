@@ -1,15 +1,21 @@
+## MottuFlow – API REST
 
-# MottuFlow API
+Esta API REST foi criada como parte do projeto **MottuFlow**, desenvolvido nas disciplinas de **Advanced Business Development with .NET**. Seu objetivo é oferecer funcionalidades completas de **CRUD** para o gerenciamento de:
 
-API REST criada para o projeto **MottuFlow**, com funcionalidades completas de CRUD para o gerenciamento de:
+* Funcionários
+* Pátios
+* Motos
+* Câmeras
+* ArUco Tags
+* Status das motos
+* Localidades
 
-- Funcionários
-- Pátios
-- Motos
-- Câmeras
-- ArucoTags
-- Status das motos
-- Localidades
+No contexto da disciplina de **IoT**, estamos desenvolvendo uma solução de **visão computacional** que será utilizada em câmeras para identificar motocicletas por meio de **ArUco Tags**.
+👉 [Link para uma imagem de exemplo no Google](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html)
+
+A API será responsável pela comunicação com o banco de dados criado na disciplina de **Database**, facilitando o envio e recebimento de informações da infraestrutura do projeto.
+
+Além disso, a API será integrada futuramente com o aplicativo mobile em desenvolvimento na disciplina de **Desenvolvimento Mobile**.
 
 ---
 
@@ -28,7 +34,7 @@ A conexão com o banco Oracle deve ser configurada no arquivo `appsettings.json`
 
 ```json
 "ConnectionStrings": {
-  "OracleDb": "User Id=usuario;Password=senha;Data Source=host:porta/serviço"
+  "OracleDb": "User Id=usuario;Password=senha;Data Source=oracle.fiap.com.br:1521/orcl"
 }
 ````
 
@@ -58,7 +64,7 @@ dotnet run
 4. Acesse a documentação interativa Swagger em:
 
 ```
-http://localhost:5175
+http://localhost:5175/swagger
 ```
 ---
 
@@ -141,9 +147,10 @@ Os principais endpoints estão organizados por entidade:
 
 ## 📌 Observações
 
-* O projeto utiliza o padrão **DTO** para encapsulamento e segurança dos dados.
-* Os dados trafegam via JSON.
-* Ideal para uso interno de sistemas de monitoramento e controle de frotas de motos.
+* Existe um arquivo **POST.txt** com templates para testar a api;
+* O projeto utiliza o padrão **DTO** para encapsulamento e segurança dos dados;
+* Os dados trafegam via JSON;
+* Ideal para uso interno de sistemas de monitoramento e controle de frotas de motos;
 
 ---
 
