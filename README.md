@@ -43,7 +43,7 @@ A conexão com o banco Oracle deve ser configurada no arquivo `appsettings.json`
 1. **Clone o repositório:**
 
 ```bash
-git clone https://github.com/seu-usuario/mottuflow-api.git
+git clone https://github.com/thejaobiell/MottuFlowDotNet.git
 cd mottuflow-api
 ```
 
@@ -62,7 +62,7 @@ dotnet run
 4. Acesse a documentação interativa Swagger em:
 
 ```
-http://localhost:5000/swagger
+http://localhost:5175
 ```
 ---
 
