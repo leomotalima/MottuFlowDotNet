@@ -1,0 +1,60 @@
+funcionario
+{
+  "id": 1,
+  "nome": "Joao",
+  "cpf": "539.371.598-60",
+  "cargo": "Mecanico",
+  "telefone": "(11) 99368-5770",
+  "usuario": "joaomec",
+  "senha": "123"
+}
+
+pátio
+{
+  "idPatio": 1
+  "nome": "Patio Central",
+  "endereco": "Rua Principal, 123",
+  "capacidadeMaxima": 50
+}
+
+moto
+{
+  "idMoto": 1,
+  "placa": "ABC-1234",
+  "modelo": "Honda CB500",
+  "fabricante": "Honda",
+  "ano": 2021,
+  "idPatio": 1,
+  "localizacaoAtual": "Setor A"
+}
+
+câmera
+{
+  "statusOperacional": "ATIVA",
+  "localizacaoFisica": "Entrada do Patio",
+  "idPatio": 1
+}
+
+ArucoTag
+{
+  "codigo": "TAG12345",
+  "idMoto": 1,
+  "status": "ATIVO"
+}
+
+Status
+{
+  "idMoto": 1,
+  "tipoStatus": "Disponibilidade",
+  "descricao": "Moto disponível para uso",
+  "idFuncionario": 1
+}
+
+Localidade
+{
+  "dataHora": "2025-05-18T20:00:00",
+  "idMoto": 1,
+  "idPatio": 1,
+  "pontoReferencia": "Entrada Principal",
+  "idCamera": 1
+}
