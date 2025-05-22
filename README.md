@@ -15,7 +15,7 @@ No contexto da disciplina de **IoT**, estamos desenvolvendo uma solução de **v
 
 A API será responsável pela comunicação com o banco de dados criado na disciplina de **Database**, facilitando o envio e recebimento de informações da infraestrutura do projeto.
 
-Além disso, a API será integrada futuramente com o aplicativo mobile em desenvolvimento na disciplina de **Desenvolvimento Mobile**.
+Além disso, a API será integrada futuramente com o aplicativo mobile em desenvolvimento na disciplina de **Mobile Application Development**.
 
 ---
 
@@ -32,41 +32,51 @@ Além disso, a API será integrada futuramente com o aplicativo mobile em desenv
 
 A conexão com o banco Oracle deve ser configurada no arquivo `appsettings.json`:
 
-```json
-"ConnectionStrings": {
-  "OracleDb": "User Id=usuario;Password=senha;Data Source=oracle.fiap.com.br:1521/orcl"
-}
-````
+
 
 ---
 
-## 🚀 Como Executar o Projeto
+# 🚀 Como Executar o Projeto
 
-1. **Clone o repositório:**
-
+# 1. Clone o repositório
 ```bash
 git clone https://github.com/thejaobiell/MottuFlowDotNet.git
 cd mottuflow-api
 ```
 
-2. **Restaure os pacotes:**
-
+# 2. Restaure os pacotes
 ```bash
 dotnet restore
 ```
 
-3. **Execute a aplicação:**
+# 🔧 **3. Verifique ou configure a conexão com o banco**
 
+* Edite o arquivo `appsettings.json` com a string de conexão certa.
+
+```json
+"ConnectionStrings": {
+  "OracleDb": "User Id=<usuario>;Password=<senha>;Data Source=oracle.fiap.com.br:1521/orcl"
+}
+````
+
+# 4. Criar as migrations e atualizar o banco
+```bash
+dotnet ef migrations add Inicial
+dotnet ef database update
+```
+
+# 5. Execute a aplicação
 ```bash
 dotnet run
 ```
 
-4. Acesse a documentação interativa Swagger em:
-
-```
+# 6. Acesse a documentação Swagger
+```txt
 http://localhost:5175/swagger
 ```
+
 ---
+
 
 ## 📂 Endpoints Disponíveis
 
