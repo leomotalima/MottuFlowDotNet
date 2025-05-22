@@ -11,7 +11,7 @@ Esta API REST foi criada como parte do projeto **MottuFlow**, desenvolvido nas d
 * Localidades
 
 No contexto da disciplina de **IoT**, estamos desenvolvendo uma solução de **visão computacional** que será utilizada em câmeras para identificar motocicletas por meio de **ArUco Tags**.
-👉 [Link para uma imagem de exemplo no Google](https://docs.opencv.org/4.x/d5/dae/tutorial_aruco_detection.html)
+👉 [Link para uma imagem de exemplo no Google](https://docs.opencv.org/4.x/singlemarkersdetection.jpg)
 
 A API será responsável pela comunicação com o banco de dados criado na disciplina de **Database**, facilitando o envio e recebimento de informações da infraestrutura do projeto.
 
