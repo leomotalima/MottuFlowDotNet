@@ -28,14 +28,6 @@ Além disso, a API será integrada futuramente com o aplicativo mobile em desenv
 
 ---
 
-## 🔌 Conexão com o Banco de Dados
-
-A conexão com o banco Oracle deve ser configurada no arquivo `appsettings.json`:
-
-
-
----
-
 # 🚀 Como Executar o Projeto
 
 # 1. Clone o repositório
