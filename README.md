@@ -1,7 +1,3 @@
-Claro! Aqui está um exemplo de `README.md` para o seu projeto **MottuFlow API**, com base no código que você forneceu:
-
----
-
 ````markdown
 # MottuFlow API
 
@@ -148,3 +144,12 @@ Os principais endpoints estão organizados por entidade:
 * O projeto utiliza o padrão **DTO** para encapsulamento e segurança dos dados.
 * Os dados trafegam via JSON.
 * Ideal para uso interno de sistemas de monitoramento e controle de frotas de motos.
+
+---
+
+
+## 👥 Equipe de Desenvolvimento
+
+- **João Gabriel Boaventura Marques e Silva** - RM554874 - 2TDSB2025
+- **Léo Mota Lima** - RM557851 - 2TDSB2025
+- **Lucas Leal das Chagas** - RM551124 - 2TDSB2025
