@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MottuFlowDotNet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06cebacb443a6a7106aa66f743d3c3f2bbbfc0d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb7b4f165ae973cfdc17dd64cddcd751a018e977")]
 [assembly: System.Reflection.AssemblyProductAttribute("MottuFlowDotNet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MottuFlowDotNet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
