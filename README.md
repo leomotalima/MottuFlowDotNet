@@ -56,7 +56,38 @@ dotnet restore
 }
 ````
 
-# 5. Criar as migrations e atualizar o banco
+## 5. Criar as Migrations e Atualizar o Banco de Dados
+
+Execute os comandos abaixo para gerar a migration inicial e aplicar as alterações no banco de dados:
+
+```bash
+dotnet ef migrations add Inicial
+dotnet ef database update
+```
+
+### Possíveis erros e soluções:
+
+* **Erro: Já existe uma migration criada**
+
+  > Solução: Exclua a pasta `Migrations` completamente antes de gerar uma nova migration.
+
+* **Erro ao aplicar `update` no banco de dados**
+
+  > Solução: Execute o script SQL abaixo para remover todas as tabelas existentes e reiniciar o processo:
+
+```sql
+DROP TABLE "Funcionarios" CASCADE CONSTRAINT;
+DROP TABLE "Status" CASCADE CONSTRAINT;
+DROP TABLE "Patios" CASCADE CONSTRAINT;
+DROP TABLE "Motos" CASCADE CONSTRAINT;
+DROP TABLE "Cameras" CASCADE CONSTRAINT;
+DROP TABLE "ArucoTags" CASCADE CONSTRAINT;
+DROP TABLE "Localidades" CASCADE CONSTRAINT;
+DROP TABLE "_EFMigrationsHistory" CASCADE CONSTRAINT;
+```
+
+Após isso, repita os comandos:
+
 ```bash
 dotnet ef migrations add Inicial
 dotnet ef database update
