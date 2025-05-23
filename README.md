@@ -188,7 +188,6 @@ Os principais endpoints estão organizados por entidade:
 * Existe um arquivo **POST.txt** com templates para testar a api;
 * O projeto utiliza o padrão **DTO** para encapsulamento e segurança dos dados;
 * Os dados trafegam via JSON;
-* Ideal para uso interno de sistemas de monitoramento e controle de frotas de motos;
 
 ---
 
