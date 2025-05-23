@@ -33,15 +33,20 @@ Além disso, a API será integrada futuramente com o aplicativo mobile em desenv
 # 1. Clone o repositório
 ```bash
 git clone https://github.com/thejaobiell/MottuFlowDotNet.git
-cd mottuflow-api
+cd MottuFlowDotNet/MottuFlowDotNet
 ```
 
-# 2. Restaure os pacotes
+# 2. Instalar o 'dotnet-ef'
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+# 3. Restaure os pacotes
 ```bash
 dotnet restore
 ```
 
-# 🔧 **3. Verifique ou configure a conexão com o banco**
+# 🔧 **4. Verifique ou configure a conexão com o banco**
 
 * Edite o arquivo `appsettings.json` com a string de conexão certa.
 
@@ -51,18 +56,18 @@ dotnet restore
 }
 ````
 
-# 4. Criar as migrations e atualizar o banco
+# 5. Criar as migrations e atualizar o banco
 ```bash
 dotnet ef migrations add Inicial
 dotnet ef database update
 ```
 
-# 5. Execute a aplicação
+# 6. Execute a aplicação
 ```bash
 dotnet run
 ```
 
-# 6. Acesse a documentação Swagger
+# 7. Acesse a documentação Swagger
 ```txt
 http://localhost:5175/swagger
 ```
