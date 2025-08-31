@@ -19,11 +19,14 @@ jobs:
         with:
           dotnet-version: '7.0.x'
 
+      - name: List files for debug
+        run: ls -R
+
       - name: Restore dependencies
-        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet
+        run: dotnet restore MottuFlowDotNet/*.csproj
 
       - name: Build
-        run: dotnet build MottuFlowDotNet/MottuFlowDotNet --no-restore
+        run: dotnet build MottuFlowDotNet/*.csproj --no-restore
 
       - name: Test
-        run: dotnet test MottuFlowDotNet/MottuFlowDotNet --no-build --verbosity normal
+        run: dotnet test MottuFlowDotNet/*.csproj --no-build --verbosity normal
