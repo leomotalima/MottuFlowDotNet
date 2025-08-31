@@ -14,16 +14,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Baixa o código do repositório
       - uses: actions/checkout@v3
 
+      # Configura o .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '8.0.x'
 
+      # Instala o SonarScanner
       - name: Install SonarScanner for MSBuild
         run: dotnet tool install --global dotnet-sonarscanner
 
+      # Inicia a análise do SonarCloud
       - name: Begin SonarCloud Analysis
         run: |
           dotnet sonarscanner begin \
@@ -31,11 +35,14 @@ jobs:
             /o:"<OrganizationKey>" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
+      # Restaura dependências da solução
       - name: Restore dependencies
         run: dotnet restore MottuFlowDotNet/MottuFlowDotNet.sln
 
+      # Build da solução
       - name: Build
         run: dotnet build MottuFlowDotNet/MottuFlowDotNet.sln --no-restore
 
+      # Finaliza a análise do SonarCloud
       - name: End SonarCloud Analysis
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
