@@ -19,7 +19,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '8.0.x' # ou 7.0.x se seu projeto for net7.0
 
       - name: Install SonarScanner for MSBuild
         run: dotnet tool install --global dotnet-sonarscanner
@@ -28,10 +28,10 @@ jobs:
         run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"<ORG_KEY>" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       - name: Restore dependencies
-        run: dotnet restore MottuFlowDotNet/*.csproj
+        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet/*.csproj
 
       - name: Build
-        run: dotnet build MottuFlowDotNet/*.csproj --no-restore
+        run: dotnet build MottuFlowDotNet/MottuFlowDotNet/*.csproj --no-restore
 
       - name: End SonarCloud Analysis
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
