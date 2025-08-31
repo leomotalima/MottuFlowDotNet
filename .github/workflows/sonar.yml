@@ -21,7 +21,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x' # ou '7.0.x' se o projeto for net7.0
+          dotnet-version: '8.0.x'
 
       # Instala o SonarScanner
       - name: Install SonarScanner for MSBuild
@@ -29,7 +29,7 @@ jobs:
 
       # Inicia a análise do SonarCloud
       - name: Begin SonarCloud Analysis
-        run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"<ORG_KEY_CORRETA>" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
+        run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"leomotalima" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
 
       # Restaura dependências
       - name: Restore dependencies
