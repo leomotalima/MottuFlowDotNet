@@ -14,24 +14,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Faz o checkout do repositório
       - uses: actions/checkout@v3
 
+      # Configura o .NET SDK
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x' # ou 7.0.x se seu projeto for net7.0
+          dotnet-version: '8.0.x'
 
+      # Instala o SonarScanner globalmente
       - name: Install SonarScanner for MSBuild
         run: dotnet tool install --global dotnet-sonarscanner
 
+      # Inicia a análise do SonarCloud
       - name: Begin SonarCloud Analysis
-        run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"<ORG_KEY>" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"SUA_ORG_KEY_AQUI" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
+      # Restaura dependências do projeto
       - name: Restore dependencies
-        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet/*.csproj
+        run: dotnet restore MottuFlowDotNet/*.csproj
 
+      # Build do projeto
       - name: Build
-        run: dotnet build MottuFlowDotNet/MottuFlowDotNet/*.csproj --no-restore
+        run: dotnet build MottuFlowDotNet/*.csproj --no-restore
 
+      # Finaliza a análise do SonarCloud
       - name: End SonarCloud Analysis
         run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
