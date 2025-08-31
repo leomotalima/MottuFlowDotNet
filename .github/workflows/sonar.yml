@@ -1,4 +1,4 @@
-name: SonarCloud
+name: SonarCloud Scan
 
 on:
   push:
@@ -9,40 +9,25 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build and Analyze
+  sonarcloud:
     runs-on: ubuntu-latest
 
     steps:
-      # Baixa o código do repositório
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      # Configura o .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: 7.0.x
 
-      # Instala o SonarScanner
-      - name: Install SonarScanner for MSBuild
+      - name: Install SonarScanner for .NET
         run: dotnet tool install --global dotnet-sonarscanner
 
-      # Inicia a análise do SonarCloud
-      - name: Begin SonarCloud Analysis
+      - name: Run SonarCloud Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          dotnet sonarscanner begin \
-            /k:"MottuFlowDotNet" \  # Substitua pelo Project Key do seu projeto no SonarCloud
-            /o:"leomotalima" \      # Substitua pelo Organization Key da sua organização
-            /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-
-      # Restaura dependências da solução
-      - name: Restore dependencies
-        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet.sln
-
-      # Build da solução
-      - name: Build
-        run: dotnet build MottuFlowDotNet/MottuFlowDotNet.sln --no-restore
-
-      # Finaliza a análise do SonarCloud
-      - name: End SonarCloud Analysis
-        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner begin /k:"leomotalima_MottuFlowDotNet" /o:"leomotalima" /d:sonar.token="$SONAR_TOKEN"
+          dotnet build
+          dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
