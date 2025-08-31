@@ -14,13 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup .NET
+      - name: Setup .NET 8 SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
-
-      - name: List files for debug
-        run: ls -R
+          dotnet-version: '8.0.x'
 
       - name: Restore dependencies
         run: dotnet restore MottuFlowDotNet/*.csproj
