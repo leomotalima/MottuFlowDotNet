@@ -31,8 +31,8 @@ jobs:
       - name: Begin SonarCloud Analysis
         run: |
           dotnet sonarscanner begin \
-            /k:"<COLE_AQUI_O_PROJECT_KEY>" \
-            /o:"<COLE_AQUI_O_ORGANIZATION_KEY>" \
+            /k:"MottuFlowDotNet" \  # Substitua pelo Project Key do seu projeto no SonarCloud
+            /o:"leomotalima" \      # Substitua pelo Organization Key da sua organização
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       # Restaura dependências da solução
