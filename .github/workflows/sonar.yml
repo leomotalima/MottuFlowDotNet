@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -26,12 +25,12 @@ jobs:
         run: dotnet tool install --global dotnet-sonarscanner
 
       - name: Begin SonarCloud Analysis
-        run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"MINHA_ORG_KEY" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        run: dotnet sonarscanner begin /k:"MottuFlowDotNet" /o:"SUA_ORG_KEY_AQUI" /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       - name: Restore dependencies
         run: dotnet restore MottuFlowDotNet/**/*.csproj
 
-      - name: Build project
+      - name: Build
         run: dotnet build MottuFlowDotNet/**/*.csproj --no-restore
 
       - name: End SonarCloud Analysis
