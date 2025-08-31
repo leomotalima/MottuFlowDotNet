@@ -35,13 +35,13 @@ jobs:
             /o:"leomotalima" \
             /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
-      # Restaura dependências do projeto
+      # Restaura dependências da solução
       - name: Restore dependencies
-        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet.csproj
+        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet.sln
 
-      # Build do projeto
+      # Build da solução
       - name: Build
-        run: dotnet build MottuFlowDotNet/MottuFlowDotNet.csproj --no-restore
+        run: dotnet build MottuFlowDotNet/MottuFlowDotNet.sln --no-restore
 
       # Finaliza a análise do SonarCloud
       - name: End SonarCloud Analysis
