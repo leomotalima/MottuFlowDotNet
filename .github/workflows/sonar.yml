@@ -32,17 +32,16 @@ jobs:
         run: |
           dotnet sonarscanner begin \
             /k:"MottuFlowDotNet" \
-            /o:"<ORG_KEY_CORRETA>" \
-            /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
-            /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml"
+            /o:"leomotalima" \
+            /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
-      # Restaura dependências apontando para o caminho exato do .csproj
+      # Restaura dependências do projeto
       - name: Restore dependencies
-        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet/MottuFlowDotNet.csproj
+        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet.csproj
 
       # Build do projeto
       - name: Build
-        run: dotnet build MottuFlowDotNet/MottuFlowDotNet/MottuFlowDotNet.csproj --no-restore
+        run: dotnet build MottuFlowDotNet/MottuFlowDotNet.csproj --no-restore
 
       # Finaliza a análise do SonarCloud
       - name: End SonarCloud Analysis
