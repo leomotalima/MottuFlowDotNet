@@ -20,11 +20,10 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore MottuFlowDotNet/MottuFlowDotNet
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build MottuFlowDotNet/MottuFlowDotNet --no-restore
 
       - name: Test
-        run: dotnet test --no-build --verbosity normal
-
+        run: dotnet test MottuFlowDotNet/MottuFlowDotNet --no-build --verbosity normal
