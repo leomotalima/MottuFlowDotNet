@@ -27,3 +27,12 @@ jobs:
 
       - name: Test
         run: dotnet test MottuFlowDotNet/*.csproj --no-build --verbosity normal
+
+      # --- Passo SonarCloud ---
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectKey: leomotalima_MottuFlowDotNet
+          organization: leomotalima
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
