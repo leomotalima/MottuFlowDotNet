@@ -1,13 +1,37 @@
 namespace MottuFlowApi.Models
 {
+    [Table("registro_status")] // Mapeia para a tabela do Oracle
     public class RegistroStatus
     {
-        public int IdStatus { get; set; }            
-        public string TipoStatus { get; set; } = null!; 
-        public string? Descricao { get; set; }       
-        public DateTime DataStatus { get; set; }     
-        public int IdMoto { get; set; }              
-        public int IdFuncionario { get; set; }       
+        [Key]
+        [Column("id_status")]
+        public int IdStatus { get; set; }
+
+        [Required]
+        [Column("tipo_status")]
+        [MaxLength(50)]
+        public string TipoStatus { get; set; } = null!;
+
+        [Column("descricao")]
+        [MaxLength(255)]
+        public string? Descricao { get; set; }
+
+        [Column("data_status")]
+        public DateTime DataStatus { get; set; } = DateTime.Now;
+
+        [Required]
+        [Column("id_moto")]
+        public int IdMoto { get; set; }
+
+        [Required]
+        [Column("id_funcionario")]
+        public int IdFuncionario { get; set; }
+
+        // Propriedades de navegação para as chaves estrangeiras
+        [ForeignKey("IdMoto")]
+        public Moto? Moto { get; set; }
+
+        [ForeignKey("IdFuncionario")]
+        public Funcionario? Funcionario { get; set; }
     }
 }
-
