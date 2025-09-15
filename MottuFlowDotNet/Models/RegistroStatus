@@ -1,0 +1,13 @@
+namespace MottuFlowApi.Models
+{
+    public class RegistroStatus
+    {
+        public int IdStatus { get; set; }            // id_status
+        public string TipoStatus { get; set; } = null!; // tipo_status
+        public string? Descricao { get; set; }       // descricao
+        public DateTime DataStatus { get; set; }     // data_status
+        public int IdMoto { get; set; }              // id_moto
+        public int IdFuncionario { get; set; }       // id_funcionario
+    }
+}
+
